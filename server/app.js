@@ -1,3 +1,4 @@
+const dotenv = require("dotenv").config();
 const express = require('express');
 const app = express();
 const sequelize = require('./db');
@@ -12,7 +13,8 @@ app.use(express.json());
 
 app.use('/user', User);
 
-app.use('/WorkoutLog', workoutLog);
+//app.use(require('./middleware/validate-session'));
+app.use('/log', workoutLog);
 
 
 app.listen(3000, function(){
